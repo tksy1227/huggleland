@@ -1,0 +1,160 @@
+/* Introduction Page Styles */
+html, body {
+    height: 100%;
+    margin: 5%;
+    font-family: Arial, sans-serif;
+    background-color: rgb(247, 202, 231);
+    color:#fd9099;
+    font-family: Pangolin;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70vh;
+    background-image: url('huggleland.png'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+}
+
+.intro-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: #fd9099; /* Text fill color */
+    -webkit-text-stroke: 0.25px brown; /* Text stroke */
+}
+
+.intro-content p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: #f9727e;
+}
+
+/* Hide the main content by default */
+.hidden {
+    display: none;
+}
+
+#enter-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+}
+
+#enter-btn:hover {
+    background-color: #ff4757;
+}
+
+/* Image Styles with Rounded Corners and Drop Shadow */
+img {
+    width: 400px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Make it responsive */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    background-color: beige;
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
+}
+
+.content p{
+    text-align: center;
+    font-family: Pangolin;
+    color: brown; /*keep as tempoary?*/
+}
+
+/* Container for centering the button */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Full viewport height */
+    text-align: top;
+    padding-bottom: 200px;
+}
+
+/* Button Styles */
+#go-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #7f9982;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.5s ease; /* Smooth transition for fade effect */
+}
+
+#go-btn:hover {
+    background-color: #9c688e;
+}
+
+/* Add fade-out effect */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease; /* Duration matches your JavaScript timeout */
+}
+
+/* Container for the options */
+.option-container {
+    display: flex;
+    flex-direction: column;  /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;  /* Space from the top */
+    padding-bottom: 200px;  /* Space at the bottom */
+}
+
+/* Button Styles */
+.opt-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #7f9982;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px 0;  /* Space between buttons */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+
+    /* Standardize size */
+    width: 350px; /* Set a fixed width */
+    height: 25px; /* Set a fixed height */
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center;     /* Center text vertically */
+}
+
+/* Hover Effect */
+.opt-btn:hover {
+    background-color: #9c688e;
+}
+
+/* Button Styles */
+#home-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #7f9982;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.5s ease; /* Smooth transition for fade effect */
+}
+
+#home-btn:hover {
+    background-color: #9c688e;
+}
