@@ -10,20 +10,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="scroll-watcher"></div> <!-- Div for the scroll watcher -->
+
     <div class="content">
-        <img src="images/scene1.png" alt="">
-        <p>Oh no!<br>The spaceship needs some last-minute repairs
+        <img src="images/scene1.png" alt="" class="fadeIn fadeIn-1">
+        <p class="fadeIn fadeIn-2">Oh no!<br>The spaceship needs some last-minute repairs
             before it can take off. 
         <br> What do we do...?
         </p>
     </div>
 
     <div class="option-container">
-        <a class="opt-btn opt-btn-1" href="resultM.html">Lucky I have my tools on hand! Let's quickly start fixing the ship!</a>
-        <a class="opt-btn opt-btn-2" href="resultO.html">Let's come up with a detailed plan on how to fix it first.</a>
-        <a class="opt-btn opt-btn-3" href="resultF.html">Let's scout the area for any useful resources we could use!</a>
-        <a class="opt-btn opt-btn-4" href="resultBe.html">My friends seem sad, they've been looking forward to this trip. Let's cheer them up!</a>
-        <a class="opt-btn opt-btn-5" href="resultBu.html">I jump in to help however I can, there's no time to waste!</a>
-    </div>    
+        <a class="opt-btn opt-btn-1 fadeIn fadeIn-3" href="resultM.html">Lucky I have my tools on hand! Let's quickly start fixing the ship!</a>
+        <a class="opt-btn opt-btn-2 fadeIn fadeIn-4" href="resultO.html">Let's come up with a detailed plan on how to fix it first.</a>
+        <a class="opt-btn opt-btn-3 fadeIn fadeIn-5" href="resultF.html">Let's scout the area for any useful resources we could use!</a>
+        <a class="opt-btn opt-btn-4 fadeIn fadeIn-6" href="resultBe.html">My friends seem sad, they've been looking forward to this trip. Let's cheer them up!</a>
+        <a class="opt-btn opt-btn-5 fadeIn fadeIn-7" href="resultBu.html">I jump in to help however I can, there's no time to waste!</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeInElements = document.querySelectorAll('.fadeIn');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            });
+            
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
