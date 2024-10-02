@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <title>Adventure Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="scroll-watcher"></div>
+
+    <div class="choice-container">
+        <div class="content">
+            <img src="images/scene1.png" alt="" class="fadeIn fadeIn-1">
+            <p class="fadeIn fadeIn-2">Oh no!<br>The spaceship needs some last-minute repairs before it can take off.
+            <br> What do we do...?</p>
+        </div>
+
+        <div class="option-container">
+            <a class="opt-btn opt-btn-1 fadeIn fadeIn-3" href="scene2.html">Lucky I have my tools on hand! Let's quickly fix the ship!</a>
+            <a class="opt-btn opt-btn-2 fadeIn fadeIn-4" href="scene2.html">Let's come up with a detailed plan on how to fix it first.</a>
+            <a class="opt-btn opt-btn-3 fadeIn fadeIn-5" href="scene2.html">Let's scout the area for any useful resources we could use!</a>
+            <a class="opt-btn opt-btn-4 fadeIn fadeIn-6" href="scene2.html">Let's cheer my friends up! They look sad...</a>
+            <a class="opt-btn opt-btn-5 fadeIn fadeIn-7" href="scene2.html">I'll jump in to help however I can, there's no time to waste!</a>
+        </div>
+    </div>
+
+    <script>
+        // Add fade-in animations as in your original script
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeInElements = document.querySelectorAll('.fadeIn');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fadeIn-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            });
+            
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Initialize the scores for each character
+        let scores = {
+            "CharacterA": 0, // mouse
+            "CharacterB": 0, // owl
+            "CharacterC": 0, // fox
+            "CharacterD": 0, // bear
+            "CharacterE": 0  // bunny
+        };
+
+        // Retrieve stored scores from localStorage if available
+        if (localStorage.getItem('scores')) {
+            scores = JSON.parse(localStorage.getItem('scores'));
+        }
+
+        // Update score for a character and store it in localStorage
+        function updateScore(character) {
+            scores[character]++;
+            localStorage.setItem('scores', JSON.stringify(scores));
+        }
+
+        // Add event listeners for each option button
+        document.querySelector('.opt-btn-1').addEventListener('click', function() {
+            updateScore('CharacterA');
+        });
+
+        document.querySelector('.opt-btn-2').addEventListener('click', function() {
+            updateScore('CharacterB');
+        });
+
+        document.querySelector('.opt-btn-3').addEventListener('click', function() {
+            updateScore('CharacterC');
+        });
+
+        document.querySelector('.opt-btn-4').addEventListener('click', function() {
+            updateScore('CharacterD');
+        });
+
+        document.querySelector('.opt-btn-5').addEventListener('click', function() {
+            updateScore('CharacterE');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main result container -->
+    <div class="result-container">
+        <h1>Congratulations!</h1>
+        
+        <!-- Character name, description and image will go here -->
+        <div class="description">
+            <h2>You are the <span class="specialHighlight">mouse</span>!</h2>
+            <p>
+                <span class="highlight">Quick-thinking and handy</span>, you always know how to fix things when they break.
+            </p>
+        </div>
+        <img src="images/mouse.png" alt="Character image" class="character-img">
+
+        <!-- Analysis and compatibility section -->
+        <div class="analysis">
+            <h3>Deeper Analysis</h3>
+            <p>You are pragmatic and resourceful, always solving problems with a calm demeanor.</p>
+        </div>
+
+        <!-- Home button -->
+        <div class="center-container">
+            <a href="index.html" id="home-btn">Go to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Object storing the characters' details
+        const characters = {
+            mouse: {
+                name: 'Mouse',
+                image: 'images/mouse.png',
+                description: 'Quick-thinking and handy, you always know how to fix things when they break.',
+                analysis: 'You are pragmatic and resourceful in stressful situations.'
+            },
+            owl: {
+                name: 'Owl',
+                image: 'images/owl.png',
+                description: 'Wise and insightful, you observe and understand the world around you.',
+                analysis: 'You excel in planning and strategizing.'
+            },
+            fox: {
+                name: 'Fox',
+                image: 'images/fox.png',
+                description: 'Clever and adaptable, you know how to get out of tricky situations.',
+                analysis: 'You are flexible and quick to adapt to challenges.'
+            }
+            // Add more characters if needed...
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const selectedCharacter = localStorage.getItem('selectedCharacter') || 'mouse';
+        const characterScore = localStorage.getItem('characterScore') || 0;
+
+        // Update character details
+        const character = characters[selectedCharacter];
+        document.querySelector('.specialHighlight').textContent = character.name;
+        document.querySelector('.character-img').src = character.image;
+        document.querySelector('.description p').textContent = character.description;
+        document.querySelector('.analysis p').textContent = character.analysis;
+
+        // Display score
+        document.querySelector('.score').textContent = `Your score is: ${characterScore}`;
+    });
+    </script>
+</body>
+</html>

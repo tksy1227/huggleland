@@ -20,7 +20,7 @@
         <!-- Image and description container -->
         <div class="image-description">
             <div class="description">
-                <h2><span class="shake">You're the mouse!</span></h2>
+                <h2><span class="shake">You're the <span class="specialHighlight">mouse</span>!</span></h2>
                 <p>
                     <span class="highlight">Quick-thinking and handy</span>, you always know how to fix things when they break.<br>
                     No problem is too big or too small when you have the right tools in your paws!
@@ -29,9 +29,12 @@
             <img src="images/mouse.png" alt="Mouse character" class="character-img">
         </div>
     
-        <!-- Divider for analysis section -->
-        <hr class="divider">
-    
+        <!-- Divider for analysis section with image -->
+        <div class="divider-container">
+            <hr class="divider">
+            <img src="images/staricon.png" alt="Overlay Image" class="overlay-img"> <!-- Replace with your image -->
+        </div>
+
         <!-- Analysis and compatibility section -->
         <div class="analysis">
             <h3>Deeper Analysis</h3>
@@ -44,6 +47,55 @@
         <div class="center-container">
             <a id="home-btn" href="index.html">Go to Home</a>
         </div>
+
+        <!-- Container for images -->
+        <div class="image-row">
+            <img src="images/staricon.png" alt="Image 1" class="image-item">
+            <img src="images/staricon.png" alt="Image 2" class="image-item">
+            <img src="images/staricon.png" alt="Image 3" class="image-item">
+        </div>
     </div>    
+
+    <!-- JavaScript -->
+    <script>
+        const characters = {
+            mouse: {
+                name: 'mouse',
+                image: 'images/mouse.png',
+                description: 'Quick-thinking and handy, you always know how to fix things when they break. No problem is too big or too small when you have the right tools in your paws!',
+                analysis: 'You tend to be pragmatic and resourceful in stressful situations. You approach challenges with a calm demeanor, relying on your problem-solving skills.',
+                compatibility: 'Your personality matches well with the owl, who shares your knack for wisdom and planning. Together, you both form a dynamic duo in tackling obstacles!'
+            },
+            owl: {
+                name: 'owl',
+                image: 'images/owl.png',
+                description: 'Wise and insightful, you observe and understand the world around you with great depth. Nothing escapes your sharp mind!',
+                analysis: 'You excel in planning and strategizing. You remain calm under pressure and guide others with your wisdom.',
+                compatibility: 'You get along well with the mouse, whose practical skills complement your insightful planning, making you a perfect team.'
+            },
+            fox: {
+                name: 'fox',
+                image: 'images/fox.png',
+                description: 'Clever and adaptable, you know how to get out of tricky situations with your sharp mind and quick reflexes.',
+                analysis: 'You are a master of flexibility and agility. You adapt to situations as they arise and always find a way out.',
+                compatibility: 'Your cunning nature pairs well with the bear, whose strength helps balance your craftiness, creating an unstoppable duo.'
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function updateCharacter(characterKey) {
+                const character = characters[characterKey];
+                document.querySelector('.specialHighlight').textContent = character.name;
+                document.querySelector('.character-img').src = character.image;
+                document.querySelector('.description p').innerHTML = character.description;
+                document.querySelector('.analysis p').innerHTML = character.analysis;
+                const compatibility = document.querySelectorAll('.analysis h3 + p')[1];
+                compatibility.innerHTML = `Your personality matches well with the <span class="highlight">${character.compatibility}</span>`;
+            }
+
+            const selectedCharacter = localStorage.getItem('selectedCharacter') || 'mouse'; // Default to 'mouse'
+            updateCharacter(selectedCharacter);
+        });
+    </script>
 </body>
 </html>

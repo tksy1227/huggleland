@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Quiz</title>
+</head>
+<body>
+    <form id="characterForm">
+        <!-- Assume each button corresponds to a character -->
+        <p>Choose an option:</p>
+        <input type="radio" name="character" value="mouse" id="mouse"> Mouse<br>
+        <input type="radio" name="character" value="owl" id="owl"> Owl<br>
+        <input type="radio" name="character" value="fox" id="fox"> Fox<br>
+        <!-- Add other options as necessary -->
+        
+        <!-- Submit button -->
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const selectedCharacter = document.querySelector('input[name="character"]:checked').value;
+            const score = calculateScore(); // Implement your own score calculation logic
+            
+            // Store both selected character and score
+            localStorage.setItem('selectedCharacter', selectedCharacter);
+            localStorage.setItem('characterScore', score);
+    
+            window.location.href = "result.html";
+        }
+    
+        function calculateScore() {
+            // Example score calculation
+            let score = 0;
+            // Add logic to calculate score based on answers
+            return score;
+        }
+    </script>
+    
+</body>
+</html>
