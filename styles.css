@@ -4,6 +4,11 @@ html, body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: rgb(247, 202, 231);
+    background-image: url('images/Background.png'); /* Add the background image */
+    background-size: full;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: Makes the background image stay fixed during scrolling */
     color:#fd9099;
     font-family: Pangolin;
 }
@@ -16,15 +21,58 @@ html, body {
     height: 70vh;              /* Height of the container */
     width: 80%;                 /* Width of the container */
     background-color: rgb(222, 255, 252); /* Background color */
-    background-size: cover;     /* Future background image */
+    background-image: url('images/ContainerBackground.png'); /* Add the background image */
+    background-size: full;     /* Future background image */
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;         /* Center text */
     color: white;               /* Text color */
-    opacity: 0.6;               /* Opacity for the container */
     border-radius: 15px;        /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop-shadow */
 }
+
+.main-container {
+    position: absolute;         /* Use absolute positioning */
+    top: 50%;                   /* Vertically center the container */
+    left: 50%;                  /* Horizontally center the container */
+    transform: translate(-50%, -50%); /* Perfect center alignment */
+    height: 100%;               /* Height of the container */
+    margin-top:50px;
+    width: 80vw;                /* Width of the container */
+    background-color: rgb(222, 255, 252); /* Background color */
+    background-image: url('images/ContainerBackground.png'); /* Add the background image */
+    background-size: full;     /* Ensure the background fits the container */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;         /* Center text inside the container */
+    color: white;               /* Text color */
+    border-radius: 15px;        /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop-shadow */
+    padding: 20px;              /* Add some internal padding */
+}
+
+.choice-container {
+    position: relative;         /* Relative positioning to allow the container to grow with content */
+    top: 5%;                   /* Align to the top of the page */
+    left: 10%;                 /* Align to the left of the page */
+    width: 80%;                /* Stretch container to full width */
+    min-height: calc(100vh - 100px); /* Ensure the container covers the viewport height minus the gap (adjust the value as needed) */
+    background-color: rgb(222, 255, 252); /* Background color */
+    background-image: url('images/ContainerBackground.png'); /* Add the background image */
+    background-size: cover;     /* Ensure the background covers the container */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;         /* Center text inside the container */
+    color: white;               /* Text color */
+    border-radius: 15px;        /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop-shadow */
+    padding: 20px;              /* Add internal padding */
+    box-sizing: border-box;     /* Ensure padding is included in width/height calculations */
+    overflow: auto;             /* Allow scrolling if content overflows */
+    margin-bottom: 50px;        /* Add margin to create a gap at the bottom */
+}
+
+
 
 .intro-content h1 {
     font-size: 3em;
@@ -39,6 +87,15 @@ html, body {
     color: #f9727e;
     background-color: white;
     opacity: 70%;
+}
+
+.intro-content h5 {
+    position: absolute;        /* Position h6 absolutely */
+    bottom: 20px;             /* Position from the bottom of the container */
+    right: 20px;              /* Position from the right of the container */
+    margin: 0;                /* Remove default margin */
+    color:rgb(184, 122, 122);
+    font-size:0.8em;
 }
 
 /* Hide the main content by default */
@@ -69,7 +126,6 @@ img {
     max-width: 100%; /* Make it responsive */
     display: block;
     margin: 0 auto;  /*Center the image */
-    margin-top:70px;
     background-color: beige;
     border-radius: 15px; /* Add rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
@@ -100,6 +156,7 @@ img {
     border-radius: 5px;
     color: white;
     text-decoration: none;
+    margin-bottom:30px;
     cursor: pointer;
     transition: opacity 0.5s ease; /* Smooth transition for fade effect */
 }
@@ -378,4 +435,15 @@ img {
 
 @keyframes scroll-watcher{
     to{scale:1 1;}
+}
+
+img{
+    background-color:white;
+    animation: fade-in linear;
+    animation-timeline: view()
+}
+
+@keyframes fade-in {
+    from {scale: .8; opacity:.5}
+    to {scale:1;opacity:1;}
 }
