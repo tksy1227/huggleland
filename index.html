@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huggleland Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/quiz.css">
+</head>
+<body>
+    <div id="quiz-container" class="quiz-container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="quiz-card">
+            <div class="welcome-content">
+                <h1 class="title">Welcome to<br>Huggleland</h1>
+                <button class="option-button" onclick="showReadyScreen()">Tap to Start!</button>
+            </div>
+        </div>
+
+        <!-- Ready Screen -->
+        <div id="ready-screen" class="quiz-card" style="display: none;">
+            <h2 class="title">Hello!</h2>
+            <div class="ready-content">
+                <p class="ready-text">Are u ready?!</p>
+                <button class="option-button" onclick="startQuiz()">Let's go!!!</button>
+            </div>
+        </div>
+        <!-- Scene Screen -->
+        <div id="scene-screen" class="quiz-card" style="display: none;">
+            <h2 id="scene-title" class="title">Scene 1!</h2>
+            <div class="scene-container">
+                <div class="scene-image-placeholder"></div>
+                <p id="scene-background" class="scene-background"></p>
+                <p id="scene-text" class="scene-text"></p>
+                <div id="options-container" class="options-container"></div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="quiz-card results" style="display: none;">
+            <h2 class="title">Congratulations!</h2>
+            <div class="result-content">
+                <p class="result-title">You are...</p>
+                <h3 id="result-animal" class="result-animal"></h3>
+                <div class="result-image"></div>
+                <p id="result-description" class="result-description"></p>
+                <div class="compatibility">
+                    <p>Best compatible with:</p>
+                    <div class="compatibility-images">
+                        <div class="compatibility-image"></div>
+                        <div class="compatibility-image"></div>
+                        <div class="compatibility-image"></div>
+                    </div>
+                </div>
+                <button class="option-button share-button" onclick="shareResults()">
+                    Share your results!
+                </button>
+                <!-- Play Again button removed -->
+            </div>
+        </div>
+    </div>
+    <div class="polka-dot-background"></div>
+    <script src="js/quizData.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
